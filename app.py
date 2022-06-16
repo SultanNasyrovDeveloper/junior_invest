@@ -14,14 +14,12 @@ from UserLogin import UserLogin
 DATABASE = "JI.db"
 SECRET_KEY = "QCQWCwfqw23r*7237^^23n2o3fqwc32"
 MAX_CONNECT_LENGTH = 1536 * 1536 # 3мб максимальный объем фотокарточки
-UPLOAD_FOLDER = './static/uploads/project'
+UPLOAD_FOLDER = '/static/uploads/project'
 ALLOWED_EXTENSIONS = ['pdf', 'pptx']
-
-
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = app.root_path + UPLOAD_FOLDER
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message = 'Упс... 😖 \nАвторизуйся для того, чтобы пользоваться данной страницей'
